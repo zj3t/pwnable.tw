@@ -2,6 +2,15 @@ from pwn import *
 import signal
 
 #context.log_level='debug'
+'''
+
+
+stack thave a pointer to _dl_init+96 in ld-2.23.so 
+   
+   0x7f9268ad40b0 <_dl_relocate_object+4112>:   mov    rax,QWORD PTR [rbx+0x10]
+   0x7f9268ad40b4 <_dl_relocate_object+4116>:   add    rax,QWORD PTR [r15]
+   0x7f9268ad40b7 <_dl_relocate_object+4119>:   call   rax
+'''
 
 def signal_handler(signal, frame):
         print('You pressed Ctrl+C!')
